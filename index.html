@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<head>
+	<title>E-Reader</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- MONOCLE CORE -->
+	<script type="text/javascript" src="src/core/monocle.js"></script>
+	<script type="text/javascript" src="src/compat/env.js"></script>
+	<script type="text/javascript" src="src/compat/css.js"></script>
+	<script type="text/javascript" src="src/compat/stubs.js"></script>
+	<script type="text/javascript" src="src/compat/browser.js"></script>
+	<script type="text/javascript" src="src/core/events.js"></script>
+	<script type="text/javascript" src="src/core/factory.js"></script>
+	<script type="text/javascript" src="src/core/styles.js"></script>
+	<script type="text/javascript" src="src/core/reader.js"></script>
+	<script type="text/javascript" src="src/core/book.js"></script>
+	<script type="text/javascript" src="src/core/component.js"></script>
+	<script type="text/javascript" src="src/core/place.js"></script>
+
+	<!-- MONOCLE FLIPPERS -->
+	<script type="text/javascript" src="src/controls/panel.js"></script>
+	<script type="text/javascript" src="src/panels/twopane.js"></script>
+	<script type="text/javascript" src="src/panels/eink.js"></script>
+	<script type="text/javascript" src="src/dimensions/columns.js"></script>
+	<script type="text/javascript" src="src/flippers/slider.js"></script>
+	<script type="text/javascript" src="src/flippers/instant.js"></script>
+	<script type="text/javascript" src="src/dimensions/vert.js"></script>
+	<script type="text/javascript" src="src/flippers/legacy.js"></script>
+
+	<!--CSS controllers-->
+	<link rel="stylesheet" type="text/css" href="styles/monocore.css" />
+	<link rel="stylesheet" href="src/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="src/fontawesome/css/fontawesome-all.min.css">
+	<link rel="stylesheet" href="style/style.css">
+	<link rel="stylesheet" href="src/bootstrap-switch/bootstrap-switch.min.css">
+
+
+</head>
+
+<body>
+	<div class="container">
+		<div class="card col-md-12 card-reader mx-auto">
+			<div class="card-body" id="reader">
+			</div>
+			<button type="button" id="btn-menu" class="btn btn-info btn-circle mx-auto"><i
+					class="fas fa-align-justify"></i>
+			</button>
+		</div>
+	</div>
+	<div class="menu-display" style="display: none;">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="menu">
+					<div class="card border-0 w-100">
+						<div class="card-header">
+							<h5>Display</h5><a href="javascript:menu()" style="color:black"><i class="fa fa-times"
+									style="display: block;position: absolute;top: 3px;right: 3px;"></i></a>
+						</div>
+						<div class="card-body card-menu">
+							<div class="row">
+								<!-- dark mode -->
+								<div class="col-md-12 mb-3">
+									<div class="form-group">
+										<label for="">Dark Mode</label> <br>
+										<input type="checkbox" name="my-checkbox" onchange="darkMode()" class="btn-dark"
+											checked>
+									</div>
+								</div>
+								<!-- animation -->
+								<div class="col-md-12">
+									<div class="form-group">
+										<label for="">Page Flip Animation</label>
+										<br>
+										<button class="btn btn-light btn-animate flip">Flip</button>
+										<button class="btn btn-light btn-animate shift">Shift</button>
+										<button class="btn btn-light btn-animate vertical">Vertical</button>
+									</div>
+								</div>
+								<!-- theme -->
+								<div class="col-md-12 theme">
+									<div class="form-group">
+										<label for="">Theme</label>
+										<br>
+										<label class="container-color">
+											<input type="radio" name="theme" id="light-yellow">
+											<span class="checkmark light-yellow" for="light-yellow" data-color="light-yellow"></span>
+										</label>
+										<label class="container-color">
+											<input type="radio" name="theme" id="yellow">
+											<span class="checkmark yellow" for="yellow" data-color="yellow"></span>
+										</label>
+										<label class="container-color">
+											<input type="radio" name="theme" id="pink" >
+											<span class="checkmark pink" for="pink" data-color="pink"></span>
+										</label>
+										<label class="container-color">
+											<input type="radio" name="theme" id="white">
+											<span class="checkmark white" for="white" data-color="white"></span>
+										</label>
+										<label class="container-color">
+											<input type="radio" name="theme" id="green" >
+											<span class="checkmark green" for="green" data-color="green"></span>
+										</label>
+										<label class="container-color">
+											<input type="radio" name="theme" id="brown" > 
+											<span class="checkmark brown" for="brown" data-color="brown"></span>
+										</label>
+									</div>
+								</div>
+								<!-- line height -->
+								<div class="col-md-12">
+									<div class="form-group">
+										<label for="">Line Height</label>
+										<br>
+										<button class="btn btn-light btn-line line-small" data-line="line-height:80% !important;" ><img class="icon-line"
+												src="src/img/line-small.svg"></button>
+										<button class="btn btn-line btn-light line-medium" data-line="line-height:normal !important"><img class="icon-line"
+												src="src/img/line-medium.svg"></button>
+										<button class="btn btn-line btn-light line-high" data-line="line-height:200% !important;"><img class="icon-line"
+												src="src/img/line-high.svg"></button>
+										<button class="btn btn-line btn-light line-default" data-line="line-height:normal !important;"><img class="icon-line"
+												src="src/img/default.png"></button>
+									</div>
+								</div>
+								<!-- text size -->
+								<div class="col-md-4">
+									<div class="form-group">
+										<label for="">Text Size</label>
+										<br>
+										<input type="range" class="form-control-range" id="text-size">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="src/jquery/js/jquery-3.3.1.min.js"></script>
+	<script src="src/bootstrap/js/popper.min.js"></script>
+	<script src="src/bootstrap/js/bootstrap.min.js"></script>
+	<script src="src/js/main.js"></script>
+	<script src="src/bootstrap-switch/bootstrap-switch.min.js"></script>
+	<script>
+		// core
+		// this instantiates a book data objects 
+		var bookData = {
+
+			//returns an array of all the component ids that are to be accessed 
+			//in linear reading order (ie, like the spine in an EPUB OPF file � 
+			//you don't have to list every component, just the ones that are read in order).
+			getComponents: function () {
+				return [
+					'source/cover.html',
+					//'first_epub/text/part1.xhtml',
+					'source/content1.html',
+					'source/content2.html',
+					'source/content3.html',
+					'source/end.html',
+				];
+			},
+
+			//a function that returns an array of nested objects. Each object responds to 
+			//title (a string), and src. src is a string that "addresses" a component and 
+			//(optionally) a location within that component. Locations within components are 
+			//indicated using standard HTML anchor notation � for example, "cmpt1#part3" points 
+			//to an element with an id of "part3" within the component named "cmpt1". 
+			getContents: function () {
+				return [
+					//				{title: "Part1 Actual Book", src: 'first_epub/text/part1.html'},
+					{
+						title: "Content Title 1",
+						src: 'source/content1.html'
+					},
+					{
+						title: "Content Title 2",
+						src: 'source/content2.html'
+					},
+					{
+						title: "Content Title 3",
+						src: 'source/content3.html'
+					},
+					{
+						title: "End",
+						src: 'source/end.html'
+					}
+				]
+			},
+
+			//takes a component id (from the list returned by getComponents) and returns the 
+			//body text of the corresponding component. If nothing is returned, Monocle will 
+			//wait for the callback to be invoked (ie, by an asynchronous operation). Either 
+			//call the callback with data, or return data, but not both.
+			getComponent: function (componentId) {
+				return {
+					url: componentId
+				};
+			},
+
+			//takes a string "key" and returns the value of that metadata for this book. 
+			//There is not yet any standardized list of possible keys -- we'll just see what 
+			//happens for a bit. Note that if nothing will go wrong if you return null or an 
+			//empty string for any requested key.
+			getMetaData: function (key) {
+				return {
+					title: "Test document",
+					creator: "Aron Woost"
+				} [key];
+			}
+		}
+		
+		$(document).ready(function(){
+			new startReader();
+		});
+
+		window.onload = window.localStorage.clear();
+		
+	</script>
+</body>
+
+</html>

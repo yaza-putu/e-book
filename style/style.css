@@ -1,0 +1,224 @@
+* {
+    padding:0;
+    margin:0;
+}
+body{
+    background: url('../src/img/sampul.jpg');
+}
+
+.dark-mode {
+    background-color: black !important;
+    color: white !important;
+}
+
+.card-menu{
+    max-height: 350px;
+    overflow-y: scroll;
+}
+
+.monelem_page{
+    border-right: none !important;
+}
+
+#reader{
+    height: 620px;
+}
+
+.card-reader{
+    width: 60%;
+}
+
+.monelem_container{
+    background:none !important;
+}
+
+.btn-circle {
+    margin-top: 1px;
+    width: 30px;
+    height: 30px;
+    padding: 6px 0px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.42857;
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    z-index: 1000;
+    color: white;
+}
+  .menu{
+      background: white;
+      position: fixed;
+      z-index: 1005;
+      padding: 10px;
+      bottom: 0;
+      width: 100%;
+      margin: 0;
+      border-top: 1px solid #a5b1c2;
+      border-radius: 15px 15px 0px 0px;
+      background: #f5f6fa;
+  }
+
+  .container-color {
+    display: inline-block;
+    position: relative;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    padding-left: 10px;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .container-color input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    top: 0;
+    left: 0;
+    height: 30px;
+    width: 40px;
+    background-color: #eee;
+    float: left;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .container-color:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .container-color input:checked ~ .checkmark {
+    border: 1px solid #0984e3;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .container-color input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .container-color .checkmark:after {
+    left: 50%;
+    top: 30%;
+    width: 5px;
+    height: 10px;
+    border: solid #0984e3;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  /* color menu checkbox */
+  .light-yellow{
+      background-color: #ffeaa7 !important;
+  }
+
+  .yellow {
+    background-color: #fdcb6e !important;
+  }
+
+  .pink {
+    background-color: #fab1a0 !important;
+  }
+
+  .white {
+    background-color: #f5f6fa !important;
+  }
+
+  .green {
+    background-color: #78e08f !important;
+  }
+
+  .brown {
+    background-color: #CAD3C8 !important;
+  }
+
+  .line-high,.line-small,.line-medium,.line-default{
+      width: 58px;
+      margin-right: 10px;
+  }
+  .icon-line{
+     width: 100%;
+  }
+
+
+/* media screen */
+  
+  @media (min-width: 481px) and (max-width: 767px) {
+    
+    /* CSS */
+    #reader{
+        height: none !important;
+    }
+    .card-reader{
+        width: 100% !important;
+    }
+
+    .menu{
+        width: 96% !important;
+    }
+
+    .container{
+        width: 100%;
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+        position: absolute;
+    }
+    
+  }
+  
+  /* 
+    ##Device = Most of the Smartphones Mobiles (Portrait)
+    ##Screen = B/w 320px to 479px
+  */
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    
+    /* CSS */
+    #reader{
+        height: none !important;
+    }
+
+    .card-reader{
+        width: 100% !important;
+    }
+
+    .menu{
+        width: 96% !important;
+    }
+
+    .btn-circle {
+        left: 47% !important;
+    }
+
+    .container{
+        width: 100%;
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+        position: absolute;
+    }
+    
+  }
